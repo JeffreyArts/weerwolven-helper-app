@@ -1,0 +1,238 @@
+const data = [
+    {
+        "image": "/kaarten/burger.jpeg",
+        "slug": "gewone-burger",	
+        "type": "burger",
+        "name": "Gewone burger",
+        "description": "Geen speciale eigenschappen, hebben als doel om de weerwolven uit te roeien",
+    },
+    {
+        "image": "/kaarten/weerwolf.jpeg",
+        "slug": "weerwolf",	
+        "type": "weerwolf",
+        "name": "Weerwolf",
+        "description": "Iedere nacht verslinden zij een burger. Overdag proberen zij hun nachtelijke gedaante te verbergen en zo aan de wraak van de dorpelingen te ontsnappen.",
+    },
+    {
+        "image": "/kaarten/ziener.jpeg",
+        "slug": "ziener",	
+        "type": "burger",
+        "name": "Ziener",
+        "description": "Elke nacht kan zij door haar gave achter de ware gedaante van een andere speler komen. Zij zou de andere burgers moeten helpen, maar dient discreet te blijven om te voorkomen dat zij door de weerwolven geïdentificeerd wordt.",
+    },
+    {
+        "image": "/kaarten/onschuldig-meisje.jpeg",
+        "slug": "onschuldig-meisje",	
+        "type": "burger",
+        "name": "Het onschuldige meisje",
+        "description": "Het meisje mag de weerwolven bespioneren door 's nachts door haar wimpers te gluren. Als zij door een weerwolf gesnapt wordt, sterft ze direct (en in stilte) in de plaats van het aangewezen slachtoffer. Het onschuldige meisje mag uitsluitend ‟s nachts spioneren, als de weerwolven actief zijn.",
+    },
+    {
+        "image": "/kaarten/jager.jpeg",
+        "slug": "jager",	
+        "type": "burger",
+        "name": "De jager",
+        "description": "Als de jager door weerwolven verslonden wordt, of door de andere burgers vermoord wordt, heeft hij nog een kleine surprise. Hij mag, voordat hij de geest geeft, terugslaan door onmiddellijk een andere speler te elimineren.",
+    },
+    {
+        "image": "/kaarten/cupido.jpeg",
+        "slug": "cupido",	
+        "type": "burger",
+        "name": "Cupido",
+        "description": "Door zijn beroemde pijlen af te schieten, kan Cupido ervoor zorgen, dat twee spelers van zijn keuze voor altijd verliefd op elkaar zijn. In de eerste nacht (de eerste beurt), mag Cupido twee spelers aanwijzen. Cupido mag zichzelf als één van de vrijers aanwijzen. - Als één van de geliefden omkomt, sterft de ander direct uit liefdesverdriet. - Een vrijer mag niet tegen zijn geliefde stemmen, zelfs niet om de andere spelers te misleiden. Opgelet: Indien de ene geliefden een burger is en de andere een weerwolf, verandert het doel van het spel voor hen. Ten einde in vrede te kunnen leven en zichzelf te beschermen, moeten ze binnen het kader van de spelregels alle andere spelers elimineren.",
+    },
+    {
+        "image": "/kaarten/heks.jpeg",
+        "slug": "heks",	
+        "type": "burger",
+        "name": "Heks",
+        "description": "Zij kan twee buitengewoon potente toverdrankjes brouwen: - een levenselixir, waarmee een dode speler tot leven geroepen kan worden; - een vergif, waarmee een speler 's nachts vermoord kan worden. De heks mag beide toverdranken in dezelfde nacht toedienen. Zij mag de toverdranken niet aan dezelfde speler geven. Dit kan betekenen, dat er de volgende morgen géén, één, of twee doden te betreuren zijn. De heks mag de drankjes zelf innemen, en zichzelf dus helen.",
+    },
+    {
+        "image": "/kaarten/burgemeester.jpeg",
+        "slug": "burgemeester",	
+        "type": "burger",
+        "name": "Burgemeerster",
+        "description": "De burgemeester wordt door een speciale algemene stemming gekozen. Deze stemming vindt plaats direct voor de eerste stemming in de normale fase van de eerste nacht. De kaart van de burgemeester wordt aan de gekozen speler gegeven. De gekozen speler mag de benoeming niet weigeren. Het kan voorkomen, dat de burgemeester een weerwolf is! Vanaf nu telt de stem van de burgemeester dubbel, als de stemmen staken. Als de burgemeester sterft, benoemt hij (terwijl hij zijn laatste ademtocht uitblaast) een opvolger.",
+    },
+    {
+        "image": "/kaarten/dief.jpeg",
+        "slug": "dief",	
+        "type": "dubieuze",
+        "name": "Dief",
+        "description": "Als de dief in het spel wordt opgenomen, worden twee gewone burgers aan de stapel kaarten toegevoegd, zodat er twee karakterkaarten meer zijn dan de 10 spelers. Na het delen van de kaarten worden de twee overgebleven kaarten gedekt op tafel gelegd. Gedurende de eerste nacht (de eerste beurt) mag de dief beide kaarten bekijken. Als hij dat wil, mag hij zijn kaart met één van de andere kaarten omruilen. Als beide kaarten weerwolven zijn, is hij verplicht om zijn kaart voor één van de weerwolven om te ruilen. Vanaf nu speelt de dief tot het spel is afgelopen dit karakter. Het spreekt voor zich, dat de dief de gedekte kaarten aan niemand mag laten zien.",
+    },
+    {
+        "image": "/kaarten/dorpsgek.jpeg",
+        "slug": "dorpsgek",	
+        "type": "burger",
+        "name": "Dorpsgek",
+        "description": "Maakt zich bekend als hij/zij door het dorp als weerwolf wordt aangewezen en wordt dan niet gedood. Speelt verder mee, maar mag niet meer meestemmen (want wat betekent nou de stem van een idioot?) en kan geen burgemeester meer zijn. Wordt wel gedood door de weerwolven of de jager",
+    },
+    {
+        "image": "/kaarten/dorpsoudste.jpeg",
+        "slug": "dorpsoudste",	
+        "type": "burger",
+        "name": "Dorpsoudste",
+        "description": "Moet door de weerwolven twee keer worden aangewezen om ‘m te doden. Wordt wel in één keer gedood door het dorp, de jager of de heks. Na het doden van de dorpsoudste verliezen alle bewoners hun bijzondere eigenschappen.",
+    },
+    {
+        "image": "/kaarten/zondebok.jpeg",
+        "slug": "zondebok",	
+        "type": "burger",
+        "name": "Zondebok",
+        "description": "Wordt gedood als de stemmen van het dorp in een gelijke stand eindigen. Mag dan eenmalig bepalen wie er de volgende ronde mag/mogen stemmen. Als dat 1 persoon is en die wordt door de weerwolven gedood, dan wordt er niet gestemd.",
+    },
+    {
+        "image": "/kaarten/genezer.jpeg",
+        "slug": "genezer",	
+        "type": "burger",
+        "name": "Genezer",
+        "description": "Wijst voordat de weerwolven in actie komen één speler aan die beschermd is tegen de weerwolven. De genezer mag zichzelf aanwijzen, maar niet twee ronden achter elkaar dezelfde speler. Het onschuldige meisje wordt nooit beschermd.",
+    },
+    {
+        "image": "/kaarten/fluitspeler.jpeg",
+        "slug": "fluitspeler",	
+        "type": "burger",
+        "name": "Fluitspeler",
+        "description": "Deze wijst elke nacht twee spelers aan die betoverd worden. Alle betoverden kijken elkaar daarna aan. Zodra er alleen nog betoverden ver zijn, wint de fluitspeler (ongeacht of dit door andere spelers tot stand komt). D fluitspeler mag zichzelf niet betoveren en de geliefden worden apart betoverd.",
+    },
+    {
+        "image": "/kaarten/burger.jpeg",
+        "slug": "dorpse-dorpeling",	
+        "type": "burger",
+        "name": "Dorpse dorpeling",
+        "description": "Is een gewone burger, maar dat is (doordat voor- en achterkant van het kaartje gelijk zijn) ook bekend.",
+    },
+    {
+        "image": "/kaarten/twee-gezusters.jpeg",
+        "slug": "twee-gezusters",	
+        "type": "burger",
+        "name": "Twee gezusters",
+        "description": "Kennen elkaar, maar zijn verder normale burgers. Mogen af en toe in stilte overleggen over hoe het dorp te redden.",
+    },
+    {
+        "image": "/kaarten/drie-gebroeders.jpeg",
+        "slug": "drie-gebroeders",	
+        "type": "burger",
+        "name": "Drie gebroeders",
+        "description": "Kennen elkaar, maar zijn gewone burgers. Mogen af en toe in stilte overleggen over hoe het dorp te redden.",
+    },
+    {
+        "image": "/kaarten/engel.jpeg",
+        "slug": "engel",	
+        "type": "eenling",
+        "name": "Engel",
+        "description": "Is een gewone burger (die een nachtmerrie heeft), maar wint gelijk het spel als de engel in de eerste spelronde door of de weerwolven of de dorpsbewoners wordt gedood.",
+    },
+    {
+        "image": "/kaarten/stotterende-raadsheer.jpeg",
+        "slug": "stotterende-raadsheer",	
+        "type": "burger",
+        "name": "Stotterende raadsheer",
+        "description": "Mag eenmaal per spel de spelleider een geheim teken geven, waardoor er een extra stemronde komt. Is verder een gewone burger.",
+    },
+    {
+        "image": "/kaarten/roestig-zwaard.jpeg",
+        "slug": "ridder-roestig-zwaard",	
+        "type": "burger",
+        "name": "Ridder met het roestige zwaard",
+        "description": "Is een gewone burger, maar als hij door de weerwolven wordt gedood verwond hij de dichtstbijzijnde weerwolf links van de ridder. Die weerwolf sterft de eerstvolgende nacht.",
+    },
+    {
+        "image": "/kaarten/toneelspeler.jpeg",
+        "slug": "toneelspeler",	
+        "type": "dubieuze",
+        "name": "Toneelspeler",
+        "description": "Kiest elke nacht één van de door de spelleiders uitgekozen karakters met speciale gaven en speelt die rol tot de volgende nacht. Deze rol is niet voor anderen beschikbaar.",
+    },
+    {
+        "image": "/kaarten/toegewijde-dienstmeisje.jpeg",
+        "slug": "toegewijde-dienstmeisje",	
+        "type": "dubieuze",
+        "name": "Toegewijde dienstmeisje",
+        "description": "Mag zich bekendmaken voordat de kaart van een door de dorpsbewoners weggestemde bewoner omgedraaid wordt en speelt dan met die rol verder.",
+    },
+    {
+        "image": "/kaarten/vos.jpeg",
+        "slug": "vos",	
+        "type": "burger",
+        "name": "Vos",
+        "description": "Is gevoelig voor de aanwezigheid van weerwolven. Mag elke nacht een groepje van drie bewoners kiezen door het aanwijzen van de middelste (of passen door nee te schudden). Als de spelleider zijn duim opsteekt zit er minimaal 1 weerwolf bij. Zit er geen weerwolf bij verliest de vos zijn kracht.",
+    },
+    {
+        "image": "/kaarten/titus.jpeg",
+        "type": "burger",
+        "name": "Titus en zijn dansende beer",
+        "description": "De beer ruikt of er direct naast Titus een weerwolf zit (weggestemde speler tellen niet mee). Als dit zo is, dan gromt de spelleider direct na het ontdekken van het slachtoffer van de weerwolven. Is Titus zelf besmet, dan gromt de beer ook.",
+    },
+    {
+        "image": "/kaarten/verschrikkelijke-sektarier.jpeg",
+        "slug": "verschrikkelijke-sektarier",	
+        "type": "eenling",
+        "name": "De verschrikkelijke Sektarier",
+        // "name": "De verschrikkelijke Sektariër",
+        "description": "Tijdens de opening wordt het dorp in twee groepen verdeeld door de spelleider. De Sektariër is een gewone burger, maar wint het spel als hij/zij alle spelers uit de andere groep dan waar hij/zij toe behoort heeft weggestemd.",
+    },
+    {
+        "image": "/kaarten/kleine-wilde.jpeg",
+        "slug": "kleine-wilde",	
+        "type": "dubieuze",
+        "name": "Kleine wilde",
+        "description": "Kiest bij de opening één andere bewoner uit als groot voorbeeld, maar is verder gewone burger (ook als zijn voorbeeld weerwolf is). Wordt zijn voorbeeld gedood, dan wordt hij/zij alsnog (direct) weerwolf. Mag ook zijn voorbeeld aanvallen. Wint met de burgers als hij op dat moment burger is en met de weerwolven als hij op dat moment weerwolf is.",
+    },
+    {
+        "image": "/kaarten/wolfshond.jpeg",
+        "slug": "wolfshond",	
+        "type": "dubieuze",
+        "name": "Wolfshond",
+        "description": "Kiest de eerste nacht of hij weerwolf of burger wordt, door zijn ogen tijdens het overleg van de weerwolven te openen of dicht te laten. Gedraagt zich verder als de gekozen rol.",
+    },
+    {
+        "image": "/kaarten/witte-weerwolf.jpeg",
+        "slug": "witte-weerwolf",	
+        "type": "eenling",
+        "name": "Witte wolf",
+        "description": "Is een (extreem slechte) weerwolf. Mag om de nacht wakker worden en een andere weerwolf doden. Blijft de witte weerwolf als enige over, dan wint deze het spel.",
+    },
+    {
+        "image": "/kaarten/grote-boze-wolf.jpeg",
+        "slug": "grote-boze-wolf",	
+        "type": "weerwolf",
+        "name": "Grote boze wolf",
+        "description": "Is een weerwolf. Wordt elke nacht wakker en mag dan nog een burger doden, tenzij er een weerwolf, Kleine Wilde of Wolfshond is uitgeschakeld.",
+    },
+    {
+        "image": "/kaarten/besmettelijke-oerwolf.jpeg",
+        "slug": "besmettelijke-oerwolf",	
+        "type": "weerwolf",
+        "name": "Besmettelijke oerwolf",
+        "description": "Is een weerwolf. Mag na het doden van een burger door de weerwolven eenmalig per spel door het opheffen van zijn poot aangeven dat de burger niet dood is maar weerwolf wordt. Die speler houdt echter zijn speciale nachtelijke gave, als hij deze heeft.",
+    },
+    {
+        "image": "/kaarten/zigeunerin.jpeg",
+        "slug": "zigeuner",	
+        "type": "burger",
+        "name": "Zigeuner",
+        "description": "Mag elke nacht aangeven dat er een kaart Spiritisme (uit Volle Maan) gebruikt moet worden en geeft aan welke vraag van de door de spelleider gekozen kaart gevraagd moet worden. Ze geeft aan wie deze vraag moet stellen na de nacht. De speler die ’s nachts als eerste is gestorven moet de vraag met Ja of Nee beantwoorden. De kaart wordt dan afgelegd.",
+    },
+    {
+        "image": "/kaarten/omroeper.jpeg",
+        "slug": "omroeper",	
+        "type": "eenling",
+        "name": "Omroeper",
+        "description": "Is net als de burgemeester een bijzondere, extra, functie. Wordt door de burgemeester toegekend (maar niet aan zichzelf). Krijgt van de spelleider een aantal gebeurteniskaarten uit Volle Maan en mag elke ochtend eventueel een gebeurteniskaart omroepen. Direct daarna mag de burgemeester hem terugfluiten en een andere kaart laten kiezen.",
+    }
+]
+
+const Cards = {
+    getAll: () => {
+        return data
+    },
+    getBySlug: (slug) => {
+        return data.find(card => card.slug === slug)
+    }
+}
+
+
+export default Cards

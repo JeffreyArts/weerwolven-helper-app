@@ -1,0 +1,81 @@
+@import 'assets/scss/variables.scss';
+@import 'assets/scss/fonts.scss';
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+}
+body {
+  background: #222;
+  color: #fff;
+  margin: 0;
+  font-family: "Nunito", "Helvetica", "Arial", sans-serif;
+  position: relative;
+  &:after {
+    background-color: #fff;
+    content: "";
+    background-image: url("/Subtle-Grunge-Texture-8.jpg");
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    right:0;
+    filter: invert(1);
+    opacity: .1;
+    z-index: -1;
+  }
+}
+
+#app {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    width: 100%;
+    flex-flow:column;
+}
+
+
+
+* {
+    box-sizing: border-box
+}
+
+
+input:-webkit-autofill {
+  background-color: #fff;
+}
+
+//selection
+::selection {
+  background: $accentColor;
+  color: #333;
+}
+
+::-moz-selection {
+  background: $accentColor;
+  color: #333;
+}
+
+
+
+.button {
+    color: #fff;
+    font-family: "American Typewriter";
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,.16), 1px 1px 0 rgba(0,0,0,.24);
+    background-color: transparent;
+    background-image: linear-gradient(90deg,  $accentColor 100%,  #900 0% );
+    background-repeat: no-repeat;
+    border: 0px solid transparent;
+    padding: 8px 16px;
+    transition: .08s all ease-out;
+    &:hover {
+        background-position-y: 30px;
+        transform: scale(1.1);
+    }
+}
