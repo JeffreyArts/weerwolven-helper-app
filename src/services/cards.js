@@ -163,6 +163,7 @@ const data = [
     {
         "image": "/kaarten/titus.jpeg",
         "type": "burger",
+        "slug": "titus",
         "name": "Titus en zijn dansende beer",
         "description": "De beer ruikt of er direct naast Titus een weerwolf zit (weggestemde speler tellen niet mee). Als dit zo is, dan gromt de spelleider direct na het ontdekken van het slachtoffer van de weerwolven. Is Titus zelf besmet, dan gromt de beer ook.",
     },
