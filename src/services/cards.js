@@ -1,7 +1,10 @@
 const data = [
     {
         "image": "/kaarten/burger.jpeg",
-        "slug": "gewone-burger",	
+        "slug": "gewone-burger",
+        "orderFirstNight": null,
+        "orderNight": null,
+        "orderDay": null,
         "type": "burger",
         "name": "Gewone burger",
         "description": "Geen speciale eigenschappen, hebben als doel om de weerwolven uit te roeien",
@@ -10,12 +13,18 @@ const data = [
         "image": "/kaarten/weerwolf.jpeg",
         "slug": "weerwolf",	
         "type": "weerwolf",
+        "orderFirstNight": 13,
+        "orderNight": null,
+        "orderDay": null,
         "name": "Weerwolf",
         "description": "Iedere nacht verslinden zij een burger. Overdag proberen zij hun nachtelijke gedaante te verbergen en zo aan de wraak van de dorpelingen te ontsnappen.",
     },
     {
         "image": "/kaarten/ziener.jpeg",
         "slug": "ziener",	
+        "orderFirstNight": 4,
+        "orderNight": null,
+        "orderDay": null,
         "type": "burger",
         "name": "Ziener",
         "description": "Elke nacht kan zij door haar gave achter de ware gedaante van een andere speler komen. Zij zou de andere burgers moeten helpen, maar dient discreet te blijven om te voorkomen dat zij door de weerwolven geïdentificeerd wordt.",
@@ -37,9 +46,22 @@ const data = [
     {
         "image": "/kaarten/cupido.jpeg",
         "slug": "cupido",	
+        "orderFirstNight": 3,
+        "orderNight": null,
+        "orderDay": null,
         "type": "burger",
         "name": "Cupido",
         "description": "Door zijn beroemde pijlen af te schieten, kan Cupido ervoor zorgen, dat twee spelers van zijn keuze voor altijd verliefd op elkaar zijn. In de eerste nacht (de eerste beurt), mag Cupido twee spelers aanwijzen. Cupido mag zichzelf als één van de vrijers aanwijzen. - Als één van de geliefden omkomt, sterft de ander direct uit liefdesverdriet. - Een vrijer mag niet tegen zijn geliefde stemmen, zelfs niet om de andere spelers te misleiden. Opgelet: Indien de ene geliefden een burger is en de andere een weerwolf, verandert het doel van het spel voor hen. Ten einde in vrede te kunnen leven en zichzelf te beschermen, moeten ze binnen het kader van de spelregels alle andere spelers elimineren.",
+    },
+    {
+        "image": null,
+        "slug": "geliefden",	
+        "orderFirstNight": 6,
+        "orderNight": null,
+        "orderDay": null,
+        "type": null,
+        "name": "Geliefden",
+        "description": "Dit koppel is door Cupido's pijlen verliefd geworden, en dient gezamenlijk te overleven. Als één van de twee sterft, sterft de ander direct uit liefdesverdriet.",
     },
     {
         "image": "/kaarten/heks.jpeg",
@@ -58,6 +80,9 @@ const data = [
     {
         "image": "/kaarten/dief.jpeg",
         "slug": "dief",	
+        "orderFirstNight": 1,
+        "orderNight": null,
+        "orderDay": null,
         "type": "dubieuze",
         "name": "Dief",
         "description": "Als de dief in het spel wordt opgenomen, worden twee gewone burgers aan de stapel kaarten toegevoegd, zodat er twee karakterkaarten meer zijn dan de 10 spelers. Na het delen van de kaarten worden de twee overgebleven kaarten gedekt op tafel gelegd. Gedurende de eerste nacht (de eerste beurt) mag de dief beide kaarten bekijken. Als hij dat wil, mag hij zijn kaart met één van de andere kaarten omruilen. Als beide kaarten weerwolven zijn, is hij verplicht om zijn kaart voor één van de weerwolven om te ruilen. Vanaf nu speelt de dief tot het spel is afgelopen dit karakter. Het spreekt voor zich, dat de dief de gedekte kaarten aan niemand mag laten zien.",
@@ -86,6 +111,9 @@ const data = [
     {
         "image": "/kaarten/genezer.jpeg",
         "slug": "genezer",	
+        "orderFirstNight": 12,
+        "orderNight": null,
+        "orderDay": null,
         "type": "burger",
         "name": "Genezer",
         "description": "Wijst voordat de weerwolven in actie komen één speler aan die beschermd is tegen de weerwolven. De genezer mag zichzelf aanwijzen, maar niet twee ronden achter elkaar dezelfde speler. Het onschuldige meisje wordt nooit beschermd.",
@@ -106,14 +134,20 @@ const data = [
     },
     {
         "image": "/kaarten/twee-gezusters.jpeg",
-        "slug": "twee-gezusters",	
+        "slug": "twee-gezusters",
+        "orderFirstNight": 8,
+        "orderNight": null,
+        "orderDay": null,	
         "type": "burger",
         "name": "Twee gezusters",
         "description": "Kennen elkaar, maar zijn verder normale burgers. Mogen af en toe in stilte overleggen over hoe het dorp te redden.",
     },
     {
         "image": "/kaarten/drie-gebroeders.jpeg",
-        "slug": "drie-gebroeders",	
+        "slug": "drie-gebroeders",
+        "orderFirstNight": 9,
+        "orderNight": null,
+        "orderDay": null,	
         "type": "burger",
         "name": "Drie gebroeders",
         "description": "Kennen elkaar, maar zijn gewone burgers. Mogen af en toe in stilte overleggen over hoe het dorp te redden.",
@@ -128,6 +162,9 @@ const data = [
     {
         "image": "/kaarten/stotterende-raadsheer.jpeg",
         "slug": "stotterende-raadsheer",	
+        "orderFirstNight": 7,
+        "orderNight": null,
+        "orderDay": null,
         "type": "burger",
         "name": "Stotterende raadsheer",
         "description": "Mag eenmaal per spel de spelleider een geheim teken geven, waardoor er een extra stemronde komt. Is verder een gewone burger.",
@@ -142,6 +179,9 @@ const data = [
     {
         "image": "/kaarten/toneelspeler.jpeg",
         "slug": "toneelspeler",	
+        "orderFirstNight": 2,
+        "orderNight": null,
+        "orderDay": null,
         "type": "dubieuze",
         "name": "Toneelspeler",
         "description": "Kiest elke nacht één van de door de spelleiders uitgekozen karakters met speciale gaven en speelt die rol tot de volgende nacht. Deze rol is niet voor anderen beschikbaar.",
@@ -155,6 +195,9 @@ const data = [
     },
     {
         "image": "/kaarten/vos.jpeg",
+        "orderFirstNight": 5,
+        "orderNight": null,
+        "orderDay": null,
         "slug": "vos",	
         "type": "burger",
         "name": "Vos",
@@ -163,6 +206,9 @@ const data = [
     {
         "image": "/kaarten/titus.jpeg",
         "type": "burger",
+        "orderFirstNight": 11,
+        "orderNight": null,
+        "orderDay": null,
         "slug": "titus",
         "name": "Titus en zijn dansende beer",
         "description": "De beer ruikt of er direct naast Titus een weerwolf zit (weggestemde speler tellen niet mee). Als dit zo is, dan gromt de spelleider direct na het ontdekken van het slachtoffer van de weerwolven. Is Titus zelf besmet, dan gromt de beer ook.",
@@ -178,6 +224,9 @@ const data = [
     {
         "image": "/kaarten/kleine-wilde.jpeg",
         "slug": "kleine-wilde",	
+        "orderFirstNight": 10,
+        "orderNight": null,
+        "orderDay": null,
         "type": "dubieuze",
         "name": "Kleine wilde",
         "description": "Kiest bij de opening één andere bewoner uit als groot voorbeeld, maar is verder gewone burger (ook als zijn voorbeeld weerwolf is). Wordt zijn voorbeeld gedood, dan wordt hij/zij alsnog (direct) weerwolf. Mag ook zijn voorbeeld aanvallen. Wint met de burgers als hij op dat moment burger is en met de weerwolven als hij op dat moment weerwolf is.",
@@ -185,6 +234,9 @@ const data = [
     {
         "image": "/kaarten/wolfshond.jpeg",
         "slug": "wolfshond",	
+        "orderFirstNight": 13,
+        "orderNight": null,
+        "orderDay": null,
         "type": "dubieuze",
         "name": "Wolfshond",
         "description": "Kiest de eerste nacht of hij weerwolf of burger wordt, door zijn ogen tijdens het overleg van de weerwolven te openen of dicht te laten. Gedraagt zich verder als de gekozen rol.",
@@ -192,6 +244,9 @@ const data = [
     {
         "image": "/kaarten/witte-weerwolf.jpeg",
         "slug": "witte-weerwolf",	
+        "orderFirstNight": 13,
+        "orderNight": null,
+        "orderDay": null,
         "type": "eenling",
         "name": "Witte wolf",
         "description": "Is een (extreem slechte) weerwolf. Mag om de nacht wakker worden en een andere weerwolf doden. Blijft de witte weerwolf als enige over, dan wint deze het spel.",
@@ -199,13 +254,19 @@ const data = [
     {
         "image": "/kaarten/grote-boze-wolf.jpeg",
         "slug": "grote-boze-wolf",	
+        "orderFirstNight": 13,
+        "orderNight": null,
+        "orderDay": null,
         "type": "weerwolf",
         "name": "Grote boze wolf",
         "description": "Is een weerwolf. Wordt elke nacht wakker en mag dan nog een burger doden, tenzij er een weerwolf, Kleine Wilde of Wolfshond is uitgeschakeld.",
     },
     {
         "image": "/kaarten/besmettelijke-oerwolf.jpeg",
-        "slug": "besmettelijke-oerwolf",	
+        "slug": "besmettelijke-oerwolf",
+        "orderFirstNight": 13,
+        "orderNight": null,
+        "orderDay": null,	
         "type": "weerwolf",
         "name": "Besmettelijke oerwolf",
         "description": "Is een weerwolf. Mag na het doden van een burger door de weerwolven eenmalig per spel door het opheffen van zijn poot aangeven dat de burger niet dood is maar weerwolf wordt. Die speler houdt echter zijn speciale nachtelijke gave, als hij deze heeft.",
@@ -232,6 +293,9 @@ const Cards = {
     },
     getBySlug: (slug) => {
         return data.find(card => card.slug === slug)
+    },
+    getByIndex: (index) => {
+        return data[index]
     }
 }
 

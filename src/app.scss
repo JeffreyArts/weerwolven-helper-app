@@ -65,7 +65,7 @@ input:-webkit-autofill {
 
 .button {
     color: #fff;
-    font-family: "American Typewriter";
+    font-family: "Nunito", "Helvetica", "Arial", sans-serif;	
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0,0,0,.16), 1px 1px 0 rgba(0,0,0,.24);
     background-color: transparent;
@@ -75,7 +75,7 @@ input:-webkit-autofill {
     padding: 8px 16px;
     transition: .08s all ease-out;
     &:hover {
-        background-position-y: 30px;
+        background-position-y: 36px;
         transform: scale(1.1);
     }
 }

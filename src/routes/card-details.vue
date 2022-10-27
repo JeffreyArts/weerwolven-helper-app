@@ -56,12 +56,6 @@ export default {
         this.card = Cards.getBySlug(this.$route.params.cardSlug)
     },
     methods: {
-        goToCard(cardSlug) {
-            this.closing = true
-            setTimeout(() => {
-                this.$router.push({name: "Card", params:{cardSlug: cardSlug}})
-            },640)
-        }
     }
 }
 

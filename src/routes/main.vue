@@ -1,24 +1,32 @@
 <template>
     <div class="main">
         <div class="card-list">
-            <div class="card" v-for="(card, index) in cards" 
+            <template v-for="(card, index) in cards" 
                 :key="index"
-                :class="[
-                    card.type == 'weerwolf' ? '__isWeerwolf' : '',
-                    card.type == 'burger' ? '__isBurger' : '',
-                    card.type == 'dubieuze' ? '__isDubieuze' : '',
-                    card.type == 'eenling' ? '__isEenling' : '',
-                ]"
                 @click="goToCard(card.slug)"
                 >
-                <div class="card-image-container">
-                    <img :title="card.name" class="card-image" :src="card.image" />
-                </div>
+                <router-link :to="`/card/${card.slug}`" class="card" 
+                    :class="[
+                        card.type == 'weerwolf' ? '__isWeerwolf' : '',
+                        card.type == 'burger' ? '__isBurger' : '',
+                        card.type == 'dubieuze' ? '__isDubieuze' : '',
+                        card.type == 'eenling' ? '__isEenling' : '',
+                    ]"
+                    v-if="card.type !== null">
 
-                <span class="card-name">{{card.name}}</span>
-                
-            </div>
+                    <div class="card-image-container">
+                        <img :title="card.name" class="card-image" :src="card.image" />
+                    </div>
+
+                    <span class="card-name">{{card.name}}</span>
+                    
+                </router-link>
+            </template>
         </div>
+
+        <footer class="button-container">
+            <router-link to="/nieuw-spel" class="button">Nieuw spel</router-link>
+        </footer>
     </div>
 </template>
 
@@ -58,6 +66,9 @@ export default {
 .card {
     width: 50%;
     padding: 0 5px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
     margin-bottom: 20px;
 }
 
@@ -90,4 +101,15 @@ export default {
     padding: 10px 0;
 }
 
+.button-container {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    a {
+        display: inline-block;
+        text-decoration: none;
+    }
+}
 </style>
