@@ -1,7 +1,10 @@
 <template>
     <div class="main">
+        <div class="search-container">
+            <input class="search-input" type="text" v-model="query" @keyup="updateFilteredCards" />
+        </div>
         <div class="card-list">
-            <div class="card" v-for="(card, index) in cards" 
+            <div class="card" v-for="(card, index) in filteredCards" 
                 :key="index"
                 :class="[
                     card.type == 'weerwolf' ? '__isWeerwolf' : '',
@@ -33,19 +36,31 @@ export default {
     },
     data() {
         return {
+            query: "",
             cards: [],
+            filteredCards: []
         }
     },
     watch: {
     },
     mounted() {
         this.cards = Cards.getAll()
+        this.updateFilteredCards()
     },
     methods: {
         goToCard(cardSlug) {
             this.closing = true
-            console.log(cardSlug)
             this.$router.push({name: "card", params:{cardSlug: cardSlug}})
+        },
+        updateFilteredCards() {
+            if (!this.query) {
+                return this.filteredCards = this.cards
+            }
+            
+            return this.filteredCards = this.cards.filter(card => {
+                return  card.name.toLowerCase().includes(this.query.toLowerCase())
+            })
+        
         }
     }
 }
@@ -66,6 +81,7 @@ export default {
     flex-flow: row wrap;
     padding-left: 10px;
     padding-right: 10px;
+    margin-bottom: 60px;
 }
 
 .card-image-container {
@@ -88,6 +104,27 @@ export default {
     font-family: 'Danger-night';
     text-transform: lowercase;
     padding: 10px 0;
+}
+ 
+.search-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    backdrop-filter: blur(8px);
+    // box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    mask-image: linear-gradient(180deg, transparent 0,black 30px, black);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0,black 30px, black);
+    mask-repeat: no-repeat;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 24px;
+    border: 1px solid #333;
+    width: calc(100% - 30px);
+    border-radius: 10px;
+    outline: none;
+    margin: 30px 15px 15px;
 }
 
 </style>
